@@ -1,11 +1,17 @@
 import Coordinate from './coordinate'
 
+/**
+ * 棋盘
+ */
 interface Board {
   element: Element;
   canvasContext: CanvasRenderingContext2D
   width: number
   height: number
 
+  /**
+   * 渲染棋盘
+   */
   generate(): void;
 
   /**
@@ -16,7 +22,16 @@ interface Board {
    */
   position(coordinate: Coordinate): { x: number, y: number }
 
-  isOnBoard(position: Coordinate): boolean
+  /**
+   * 判断该坐标是否落在棋盘范围内
+   *
+   * @param {} coordinate
+   * @return {boolean}
+   */
+  isOnBoard(coordinate: Coordinate): boolean
 
+  /**
+   * 开始游戏
+   */
   newGame(): void
 }

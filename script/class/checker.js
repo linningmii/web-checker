@@ -1,7 +1,9 @@
 import Board from './board'
 import Coordinate from './coordinate'
+import BizException from './bizException'
 
 const _board = Symbol('_board')
+const _isDropped = Symbol('_isDropped')
 
 /**
  * 棋子
@@ -19,6 +21,7 @@ export default class Checker {
     this.element = board.canvasContext.canvas
     this.canvasContext = board.canvasContext
     this.radius = board.width / 60 / 2
+    this[_isDropped] = false
   }
 
   get board () {
@@ -35,6 +38,10 @@ export default class Checker {
       throw new TypeError('Not a valid position')
     }
 
+    if (this.isDropped) {
+      throw new BizException('The checker is already drop on the board')
+    }
+
     const ctx = this.canvasContext
 
     const position = this.board.position(coordinate)
@@ -43,5 +50,11 @@ export default class Checker {
     ctx.arc(position.x, position.y, this.radius, 0, 2 * Math.PI, false)
     ctx.fillStyle = this.backgroundColor
     ctx.fill()
+
+    this[_isDropped] = true
+  }
+
+  get isDropped () {
+    return this[_isDropped]
   }
 }

@@ -18,7 +18,7 @@ export default class Board {
     this.height = this.element.height
 
     if (this.width !== this.height) {
-      throw new Error('The canvas use for generate checker board must be squared')
+      throw new BizException('The canvas use for generate checker board must be squared')
     }
   }
 
@@ -36,7 +36,7 @@ export default class Board {
       y: this.height / 2
     }
 
-    // 半径为canvas元素的45%
+    // 默认半径为canvas元素的45%
     const radius = this.width / 2 * 0.9
 
     ctx.beginPath()
