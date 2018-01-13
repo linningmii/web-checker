@@ -1,0 +1,12 @@
+{
+  "name": "web-checkers",
+  "version": "0.0.1",
+  "main": "./dev.sh",
+  "license": "MIT",
+  "scripts": {
+    "dev": "sh dev.sh"
+  },
+  "devDependencies": {
+    "stylus": "^0.54.5"
+  }
+}
