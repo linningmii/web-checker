@@ -28,14 +28,19 @@ export default class Checker {
     return this[_board]
   }
 
+  get isDropped () {
+    return this[_isDropped]
+  }
+
   /**
    * 落子
    *
    * @param coordinate: Coordinate
+   * @return void
    */
   drop (coordinate) {
     if (!coordinate instanceof Coordinate) {
-      throw new TypeError('Not a valid position')
+      throw new TypeError('Not a valid coordinate')
     }
 
     if (this.isDropped) {
@@ -54,7 +59,19 @@ export default class Checker {
     this[_isDropped] = true
   }
 
-  get isDropped () {
-    return this[_isDropped]
+  /**
+   * 移动棋子
+   *
+   * @param coordinate: Coordinate
+   * @return void
+   */
+  move(coordinate) {
+    if (!coordinate instanceof Coordinate) {
+      throw new TypeError('Not a valid coordinate')
+    }
+
+    if (!this.isDropped) {
+      throw new BizException('Checker must be dropped before move')
+    }
   }
 }

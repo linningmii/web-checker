@@ -13,4 +13,6 @@ interface Checker {
    * @param {} coordinate
    */
   drop(coordinate: Coordinate): void;
+
+  move?(coordinate: Coordinate): void
 }
