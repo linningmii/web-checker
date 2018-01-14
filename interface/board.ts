@@ -4,6 +4,8 @@ import Coordinate from './coordinate'
  * 棋盘
  */
 interface Board {
+  constructor(canvasContext: CanvasRenderingContext2D)
+
   element: Element;
   canvasContext: CanvasRenderingContext2D
   width: number
