@@ -2,6 +2,7 @@ import Coordinate from './coordinate'
 
 const _board = Symbol('_board')
 const _coordinate = Symbol('_coordinate')
+const _radius = Symbol('_radius')
 
 export default class Slot {
   constructor (board, coordinate, borderColor = 'black') {
@@ -16,10 +17,10 @@ export default class Slot {
     const position = board.position(coordinate)
 
     // 默认半径为canvas元素的45%
-    const radius = board.width / 60 / 2
+    this[_radius] = board.width / 60 / 2
 
     ctx.beginPath()
-    ctx.arc(position.x, position.y, radius, 0, 2 * Math.PI, false)
+    ctx.arc(position.x, position.y, this.radius, 0, 2 * Math.PI, false)
     ctx.strokeStyle = borderColor
     ctx.stroke()
   }
@@ -30,6 +31,10 @@ export default class Slot {
 
   get coordinate () {
     return this[_coordinate]
+  }
+
+  get radius () {
+    return this[_radius]
   }
 
   /**

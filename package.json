@@ -8,5 +8,9 @@
   },
   "devDependencies": {
     "stylus": "^0.54.5"
+  },
+  "dependencies": {
+    "lodash.inrange": "^3.3.6",
+    "lodash.isinteger": "^4.0.4"
   }
 }

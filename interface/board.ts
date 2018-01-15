@@ -6,7 +6,7 @@ import Coordinate from './coordinate'
 interface Board {
   constructor(canvasContext: CanvasRenderingContext2D)
 
-  element: Element;
+  element: Element
   canvasContext: CanvasRenderingContext2D
   width: number
   height: number
@@ -14,7 +14,7 @@ interface Board {
   /**
    * 渲染棋盘
    */
-  generate(): void;
+  generate(): void
 
   /**
    * 棋盘的坐标系规则在这个方法中实现, 根据坐标返回具体的canvas位置

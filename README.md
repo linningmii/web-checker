@@ -2,7 +2,7 @@
 
 yarn add --global parcel-bundle
 
-yarn dev
+yarn install && yarn dev
 
 默认端口1234, 具体配置在dev.sh中进行修改
 
